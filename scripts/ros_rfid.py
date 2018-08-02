@@ -14,11 +14,13 @@ def getArgs():
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--ports', type=str, nargs='*', dest='ports', default=DEFAULT_PORTS, help='list of serial ports', required=False)
     parser.add_argument('-b', '--baudrate', required=False, default=BAUDRATE, help='specifies baudrate')
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()
     return args.ports, args.baudrate
 
 def talker():
 	ports, baudrate = getArgs()
+	# ports = DEFAULT_PORTS
+	# baudrate = BAUDRATE
 
 	# Init ros publisher
 	pub = rospy.Publisher(TOPIC_NAME, RFID_data, queue_size=10)
