@@ -19,8 +19,6 @@ def getArgs():
 
 def talker():
 	ports, baudrate = getArgs()
-	# ports = DEFAULT_PORTS
-	# baudrate = BAUDRATE
 
 	# Init ros publisher
 	pub = rospy.Publisher(TOPIC_NAME, RFID_data, queue_size=10)
