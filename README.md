@@ -1,10 +1,11 @@
 # ROS node for getting RFID data from Arduino
 ## Dependencies
 First of all you must copy libraries from libraries folder to your local Arduino directory (if you do not already have them). Then you should install pySerial  (if you do not have it, too).
+Trere are scetches for MFRC522 reader and for RDM630/6300.
 
 ## Start work
 1. Build this package for getting rfid data messages in ROS environment.
-2. Upload scetch for you Arduino('s).
+2. Upload scetch for your RFID-reader type on you Arduino('s).
 3. Run roscore.
 4. Run this node  
 with default parameters  

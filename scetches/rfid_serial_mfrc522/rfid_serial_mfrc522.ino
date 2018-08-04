@@ -10,7 +10,7 @@
 // LCD's i2c adress
 byte LCD_I2C = 0x3F;
 
-LiquidCrystal_I2C lcd(LCD_I2C,16,2);
+LiquidCrystal_I2C lcd(LCD_I2C,16,2); //sda - a4, scl - a5
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
@@ -29,8 +29,6 @@ void setup() {
   // init lcd
   lcd.init();
   lcd.backlight();
-  
-//  Serial.println("ready");
   
   uidDec = 0;
   uidLast = 0;
