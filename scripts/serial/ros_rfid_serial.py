@@ -6,6 +6,7 @@ from serial_utils import *
 
 DEFAULT_PORTS = ["/dev/ttyUSB0"] # Ports that used as default
 BAUDRATE = 9600
+RATE = 2 # [hz] Rate of publishing
 
 TOPIC_NAME = 'rfid_data'
 NODE_NAME = 'serial_rfid_node'
@@ -14,16 +15,17 @@ def getArgs():
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--ports', type=str, nargs='*', dest='ports', default=DEFAULT_PORTS, help='list of serial ports', required=False)
     parser.add_argument('-b', '--baudrate', required=False, default=BAUDRATE, help='specifies baudrate')
+    parser.add_argument('-r', '--rate', type=int, required=False, default=RATE, help='rate of publishing')
     args, unknown = parser.parse_known_args()
-    return args.ports, args.baudrate
+    return args.ports, args.baudrate, args.rate
 
 def talker():
-	ports, baudrate = getArgs()
+	ports, baudrate,rate = getArgs()
 
 	# Init ros publisher
 	pub = rospy.Publisher(TOPIC_NAME, RFID_data, queue_size=10)
 	rospy.init_node(NODE_NAME, anonymous=True)
-	rate = rospy.Rate(10) # 10hz
+	rate = rospy.Rate(rate) # 10hz
 
 	# Init serial for each port
 	rospy.loginfo('Ports opening...')

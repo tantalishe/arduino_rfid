@@ -1,0 +1,8 @@
+
+<launch>
+
+
+<node pkg="arduino_rfid" type="ros_rfid_wifi.py" name="ros_rfid_wifi" args="--hosts 192.168.10.115 -p 80 -r 0.5 -t 1" />
+
+
+</launch>

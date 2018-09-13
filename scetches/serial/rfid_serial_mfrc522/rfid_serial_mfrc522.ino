@@ -4,11 +4,11 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define SS_PIN 10
-#define RST_PIN 9
+#define SS_PIN 53
+#define RST_PIN 5
 
 // LCD's i2c adress
-byte LCD_I2C = 0x3F;
+byte LCD_I2C = 0x27;// 0x3F;
 
 LiquidCrystal_I2C lcd(LCD_I2C,16,2); //sda - a4, scl - a5
 
@@ -32,6 +32,7 @@ void setup() {
   
   uidDec = 0;
   uidLast = 0;
+  Serial.println("Ready");
 }
 void loop() {
   // display last tag's uid
@@ -42,9 +43,11 @@ void loop() {
   
   // find frid tag
   if ( ! mfrc522.PICC_IsNewCardPresent()) {
+//    Serial.println(0);
     return;
   }
   if ( ! mfrc522.PICC_ReadCardSerial()) {
+//    Serial.println(12);
     return;
   }
 

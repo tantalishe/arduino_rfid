@@ -1,0 +1,8 @@
+
+<launch>
+
+
+<node pkg="arduino_rfid" type="ros_rfid_serial.py" name="ros_rfid_serial" args="-p /dev/ttyUSB0 /dev/ttyACM0 -b 9600 -r 2" />
+
+
+</launch>
