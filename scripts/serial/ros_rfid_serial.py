@@ -15,7 +15,7 @@ def getArgs():
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--ports', type=str, nargs='*', dest='ports', default=DEFAULT_PORTS, help='list of serial ports', required=False)
     parser.add_argument('-b', '--baudrate', required=False, default=BAUDRATE, help='specifies baudrate')
-    parser.add_argument('-r', '--rate', type=int, required=False, default=RATE, help='rate of publishing')
+    parser.add_argument('-r', '--rate', type=float, required=False, default=RATE, help='rate of publishing [hz]')
     args, unknown = parser.parse_known_args()
     return args.ports, args.baudrate, args.rate
 

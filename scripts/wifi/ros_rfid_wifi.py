@@ -16,7 +16,7 @@ def getArgs():
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', '--hosts', type=str, nargs='*', dest='hosts', default=DEFAULT_HOSTS, help='list of hosts', required=False)
     parser.add_argument('-p', '--port', required=False, default=DEFAULT_PORT, help='port')
-    parser.add_argument('-r', '--rate', type=int, required=False, default=DEFAULT_RATE, help='rate of publishing')
+    parser.add_argument('-r', '--rate', type=float, required=False, default=DEFAULT_RATE, help='rate of publishing [hz]')
     parser.add_argument('-t', '--timeout', type=int, required=False, default=DEFAULT_TIMEOUT, help='requests timeout')
     args, unknown = parser.parse_known_args()
     return args.hosts, args.port, args.rate, args.timeout

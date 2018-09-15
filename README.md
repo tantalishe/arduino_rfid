@@ -7,24 +7,24 @@ WiFi connection between Arduino and PC implemented through ESP-01 and it's AT fi
 Trere are scetch for MFRC522 reader.
 
 ### Connection via serial port
-For conection via serial you should install pySerial  (if you do not have it, too).
+For conection via serial you should install pySerial.
 Trere are scetches for MFRC522 reader and for RDM630/6300.
 
 ## Start work
 1. Build this package for getting rfid data messages in ROS environment.
-2. Upload scetch for your RFID-reader type on you Arduino('s).
+2. Upload scetch for your RFID-reader type on you Arduino('s). If you want to use wifi, you should change network SSID and password before uploading.
 3. Run node  
 with default parameters:  
 `rosrun arduino_rfid ros_rfid_serial.py`  
 or  
 `rosrun arduino_rfid ros_rfid_wifi.py`  
 with specified parameters:  
-`rosrun arduino_rfid ros_rfid_serial.py --ports /dev/ttyUSB0 /dev/ttyACM0 --baudrate 9600 --rate 2`
+`rosrun arduino_rfid ros_rfid_serial.py --ports /dev/ttyUSB0 /dev/ttyACM0 --baudrate 9600 --rate 2`  
 or  
-`rosrun arduino_rfid ros_rfid_wifi.py --hosts 192.168.10.115 --port 80 --rate 0.5 --timeout 1`  
+`rosrun arduino_rfid ros_rfid_wifi.py --hosts 192.168.2.115 192.168.2.243 --port 80 --rate 0.5 --timeout 1`  
 you can use launch file where parameters are pre-specified:  
-`roslaunch arduino_rfid ros_rfid_serial.launch`.
+`roslaunch arduino_rfid ros_rfid_serial.launch`.  
 or  
 `roslaunch arduino_rfid ros_rfid_wifi.launch`.
-4. See published data in the `/rfid_data` topic (name of topic and node can be changed in `ros_rfid.py`).
+4. See published data in the `/rfid_data` topic (name of topic and node can be changed in `ros_rfid_serial/wifi.py`).
 5. Enjoy!
